@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+.env
+.env.*
+
+Dataset/
+data/
+output/
+runs/
+
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+*.onnx
+*.engine
+*.tflite
+
+*.log
+*.tmp
+
+.vscode/
+.idea/
+
+Thumbs.db
+.DS_Store
+desktop.ini
+# Test image
+bus.jpg
+
+# Base YOLO model weights
+yolo11n.pt
+yolo26n.pt
