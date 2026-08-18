@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RailMind AI — Predictive Railway Crowd Intelligence</title>
+<meta name="description" content="RailMind AI: predictive railway crowd intelligence, surge forecasting, bottleneck detection and intervention simulation for station operations." />
+<link rel="icon" href="../images/railmind-logo.png" />
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary navigation">
+    <div class="brand">
+      <img src="../images/railmind-logo.png" alt="RailMind AI logo" class="brand-logo" />
+    </div>
+    <nav id="nav" class="nav"></nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="station">
+        <label class="sr-only" for="stationSelect">Select station</label>
+        <select id="stationSelect" aria-label="Station selector"></select>
+        <span id="stationCode" class="chip mono">PUNE</span>
+      </div>
+      <div class="topbar-right">
+        <div class="clock"><strong id="clockTime">--:--</strong><span id="clockDate" class="mono"></span></div>
+        <div id="sysStatus" class="status-pill">● SYSTEM ONLINE</div>
+        <button id="bellBtn" class="icon-btn" aria-label="Notifications">🔔<span id="bellCount" class="badge-dot">4</span></button>
+        <div class="operator" title="Operator"><span class="avatar">OP</span><div><div id="opName" class="op-name">Control Operator</div><div class="op-role mono">STATION CONTROLLER</div></div></div>
+        <button id="logoutBtn" class="icon-btn" aria-label="Log out" title="Log out">⏻</button>
+      </div>
+    </header>
+
+    <div id="banner" class="banner" role="status"></div>
+    <main id="view" class="view" tabindex="-1"></main>
+    <footer class="foot mono">RAILMIND AI · PS-B11 · DATA HONESTY: values shown are DEMO unless the Railway Intelligence Engine is connected.</footer>
+  </div>
+</div>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="modalTitle">Details</h3><button class="icon-btn" id="modalClose" aria-label="Close dialog">✕</button></div>
+    <div id="modalBody" class="modal-body"></div>
+    <div id="modalFoot" class="modal-foot"></div>
+  </div>
+</div>
+<div id="drawer" class="drawer" role="dialog" aria-modal="false" aria-labelledby="drawerTitle" hidden>
+  <div class="drawer-head"><h3 id="drawerTitle">Panel</h3><button class="icon-btn" id="drawerClose" aria-label="Close panel">✕</button></div>
+  <div id="drawerBody" class="drawer-body"></div>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<script src="../auth.js"></script>
+<script>if(!window.RailMindAuth.isAuthenticated()){window.location.replace("../login.html");}</script>
+<script src="script.js" defer></script>
+<script defer>
+  window.addEventListener("DOMContentLoaded",function(){
+    var u=window.RailMindAuth.user();
+    if(u&&u.name){document.getElementById("opName").textContent=u.name;}
+    document.getElementById("logoutBtn").addEventListener("click",function(){window.RailMindAuth.logout();});
+  });
+</script>
+</body>
+</html>

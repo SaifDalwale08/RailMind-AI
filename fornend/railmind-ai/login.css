@@ -1,0 +1,9 @@
+/* RailMind AI — login page styles (page-specific overrides) */
+/* RailMind AI — login page styles */
+.auth-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(190px, 100%);
+    object-fit: contain;
+}

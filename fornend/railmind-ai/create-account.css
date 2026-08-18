@@ -1,0 +1,17 @@
+/* RailMind AI — create-account page styles */
+        .auth-logo {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: min(180px, 100%);
+            object-fit: contain;
+        }
+
+        .cinematic-glow {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+        }
+        .input-glow:focus {
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+            border-color: #b4c5ff;
+        }
+    
